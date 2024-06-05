@@ -4,12 +4,24 @@
 
 wsl の ubuntu24, apache2, php8.3 で開発。
 
+マイクロソフトストアから、wsl の ubuntu24 を入手した。
+apache2 が最初から入っており、自動起動する。
+
 ### パッケージ導入
+
+まだインストールされていないなら。
 
 ```bash
 sudo apt install php
 sudo apt install composer
 sudo apt install mariadb-server
+```
+
+```bash
+# 存在するかの確認
+php -v
+composer -v
+mysql --version
 ```
 
 ### mariadb で、データベースとユーザーを作り、権限を付与。
@@ -128,7 +140,7 @@ php artisan migrate
 
 ---
 
-## lang ディレクトリを出しておく。日本語化していくため。
+## lang ディレクトリを出しておく。今後の日本語化のために。
 
 ```bash
 php artisan lang:publish
@@ -142,7 +154,7 @@ php artisan lang:publish
 # インストーラのようなものをインストール
 composer require laravel/breeze --dev
 
-# インストール開始。選択肢はすべてデフォルト。
+# 対話型インストール開始。選択肢はすべてデフォルト。
 php artisan breeze:install
 
 # インストール後の処置
